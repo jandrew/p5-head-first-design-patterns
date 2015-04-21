@@ -1,0 +1,9 @@
+#gitignore file
+.build/*
+lib/Moose*
+p5-head-first-design-patterns*
+*.tar.gz
+*.zip
+DevelopmentNotes.txt
+Makefile.old
+Supporting_Documentation/*
