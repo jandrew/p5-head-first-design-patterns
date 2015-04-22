@@ -1,4 +1,4 @@
-my $VERSION = 0.002;
+my $VERSION = 0.003;
 =pod
 
 =encoding utf-8
@@ -18,7 +18,7 @@ p5-head-first-design-patterns - perl (Moose) equivalent to the Java excercises
 </a>
 
 <a>
-	<img src="https://img.shields.io/badge/this version-0.002-brightgreen.svg" alt="this version">
+	<img src="https://img.shields.io/badge/this version-0.003-brightgreen.svg" alt="this version">
 </a>
 
 =end html
@@ -52,7 +52,7 @@ point so your perl object system of choice should work as you write what you wan
 as it is valid perl syntax.  To point individual tests at your code just change the following 
 line at the top to your library;
 
-	$use_lib //= '../../jandrew_lib/Chapter02';# s/jandrew_lib/${you}_lib/
+	my $sub_lib = 'jandrew_lib/Chapter01';# s/jandrew_lib/${you}_lib/
 
 =head1 Repo Organization
 
@@ -61,15 +61,17 @@ where the tests go.  In Java everything is an object.  In perl, scripts are used
 objects unless you are using the L<modulino
 |http://perltricks.com/article/107/2014/8/7/Rescue-legacy-code-with-modulinos> concept.  I 
 don't go that far although I would be willing to add modulino examples provided by others.  
-Therefore all the patterns will be built as objects and stored in the 'jandrew_lib' folder 
-under the chapter from the book.  The tests to run those patterns will be stored in the t 
-folder under the chapter for the book as well.  If you want to run all the tests (except the 
-GUI ones) at once run the file 03-tap_harness_tests.t.  If you fork the repo and delete/
-rename the lib I provided then this approach should be sufficient to run your own learning 
-cycle.  The goal is to treat your learning like Test Driven Development without having to 
-write the tests.  (How great is that!)  If you want to test on the fly mid chapter you may 
-need to comment out the use statements in each sub test for objects that you have not built 
-yet.
+Therefore all of my pattern implementations will be built as objects and stored in the 
+'jandrew_lib' folder under the chapter from the book.  The tests to run those patterns will 
+be stored in the t folder under the chapter for the book as well.  Most of the actual tests 
+will be stored as .t files but the GUI tests will be stored as .pl files since I didn't feel 
+energetic enough to write cross platform GUI tests.  If you want to run all the tests (except 
+the GUI ones) at once run the file 03-tap_harness_tests.t.  If you fork the repo and delete/
+rename the lib folder I provided then this approach should be sufficient to run your own 
+learning cycle.  The goal is to treat your learning like Test Driven Development without 
+having to write the tests.  (How great is that!)  If you want to test on the fly mid chapter 
+you may need to comment out the reqire statements in each sub test for objects that you have not 
+built yet.
 
 =head1 How to participate
 
@@ -79,8 +81,8 @@ most inclusive and responsive way I can and to the best of my knowledge.
 If you wish to submit alternate solutions to the chapters in a pull request please add an 
 additional lib folder in the format 'author_lib'  Then in the master test harness add a call 
 to the appropriate test file with a new test name and point to your lib for the solution.  
-(You can still use the current test.)  If you have a github user name it would probably be best 
-to use that as your author string.  Example from the master test harness;
+(You can still use the current test if you want.)  If you have a github user name it would 
+probably be best to use that as your author string.  Example from the master test harness;
 
 	
 	my	$args ={
@@ -98,19 +100,21 @@ to use that as your author string.  Example from the master test harness;
 		);
 		
 The variable $up is needed in the lib call so it will run as a file in the folder or at the 
-top level with prove.  I am far less likely to accept pull requests for code that is untested 
-or fails to pass the books fairly minimal test suite.  If you do this I should get an 
-automated report from Travis-CI that will check the work before I complete the pull request.
+top level with prove.  If you want to write your own test that's fine but the package should 
+pass 'prove' at the top level folder and also 'make test'.   If you do this I should get an 
+automated report from Travis-CI that will check the work before I complete the pull request.  
+I am far less likely to accept pull requests for code that is untested or fails to pass the 
+books fairly minimal test suite. 
 
-For now this readme is the kickoff place but I plan on putting all answers and general spewing 
+For now this readme is the kickoff place and I plan on putting all answers and general spewing 
 of conciousness on the L<wiki|https://github.com/jandrew/p5-head-first-design-patterns/wiki>.  
-For now there is no plan to provide complete pod for each class and role written.
+Additionally I have no plan to provide complete pod for each class and role written.
 
 If you wish to submit an issue in github as opposed to alternate solutions, I would request 
 that the issues be focused on failures in the code for untested platforms or code issues 
-with untested functionality.  If you have a question about design choices I will try my best 
-but you may just get "It seemed right at the time!".  Please provide any concerns about the 
-book content to the authors on L<their website
+with untested functionality.  If you have a question about design choices or Moose vs. Java 
+I will try my best to answer but you may just get "It seemed right at the time!".  Please 
+provide any concerns about the book content to the authors on L<their website
 |http://forums.oreilly.com/forum/48-head-first-design-patterns/>.
 
 =head1 TODO

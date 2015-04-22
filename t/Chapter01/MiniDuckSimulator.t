@@ -2,9 +2,12 @@
 #!/usr/bin/env perl
 use Test::Most tests => 9;
 use Capture::Tiny qw( capture_stdout );
-my ( $use_lib ) = @ARGV;
-$use_lib //= '../../jandrew_lib/Chapter01';
-eval "use lib '$use_lib'";
+
+my $sub_lib = 'jandrew_lib/Chapter01';
+my ( @use_lib ) = @ARGV;
+@use_lib = ( @use_lib ) ? ( @use_lib ) :
+	( '../../' . $sub_lib, $sub_lib );
+eval "use lib '" . join( "', '", @use_lib ) . "'";
 require MallardDuck;
 require ModelDuck;
 require FlyRocketPowered;

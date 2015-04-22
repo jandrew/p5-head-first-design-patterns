@@ -2,10 +2,12 @@
 #!/usr/bin/env perl
 use Test::Most tests => 20;
 use Capture::Tiny qw( capture_stdout );
-use Data::Dumper;
-my ( $use_lib ) = @ARGV;
-$use_lib //= '../../jandrew_lib/Chapter02/weather';
-eval "use lib '$use_lib'";
+
+my $sub_lib = 'jandrew_lib/Chapter02/weather';
+my ( @use_lib ) = @ARGV;
+@use_lib = ( @use_lib ) ? ( @use_lib ) :
+	( '../../' . $sub_lib, $sub_lib );
+eval "use lib '" . join( "', '", @use_lib ) . "'";
 require WeatherData;
 require CurrentConditionsDisplay;
 require StatisticsDisplay;
