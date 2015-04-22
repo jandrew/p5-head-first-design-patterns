@@ -13,8 +13,8 @@ p5-head-first-design-patterns - perl (Moose) equivalent to the Java excercises
 	<img src="https://img.shields.io/badge/perl-5.10+-brightgreen.svg" alt="perl version">
 </a>
 
-<a href="https://travis-ci.org/jandrew/Spreadsheet-XLSX-Reader-LibXML">
-	<img alt="Build Status" src="https://travis-ci.org/jandrew/Spreadsheet-XLSX-Reader-LibXML.png?branch=master" alt='Travis Build'/>
+<a href="https://travis-ci.org/jandrew/p5-head-first-design-patterns">
+	<img alt="Build Status" src="https://travis-ci.org/jandrew/p5-head-first-design-patterns.png?branch=master" alt='Travis Build'/>
 </a>
 
 <a>
