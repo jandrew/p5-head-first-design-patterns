@@ -1,3 +1,4 @@
+my $VERSION = 0.002;
 =pod
 
 =encoding utf-8
@@ -17,7 +18,7 @@ p5-head-first-design-patterns - perl (Moose) equivalent to the Java excercises
 </a>
 
 <a>
-	<img src="https://img.shields.io/badge/this version-v0.0.1-brightgreen.svg" alt="this version">
+	<img src="https://img.shields.io/badge/this version-0.002-brightgreen.svg" alt="this version">
 </a>
 
 =end html
